@@ -29,7 +29,6 @@ startup{
 	vars.ASLVersion = "2020-08-15 for SWD3 DVD1.02";
 
 	settings.Add("Pause during F8", true);
-	settings.Add("First inf.money Split", true);
 	
 	vars.logFilePath = Directory.GetCurrentDirectory() + "\\SWD3-Autosplitter.log"; //same folder as LiveSplit.exe
 	vars.log = (Action<string>)((string logLine) => {
