@@ -1,6 +1,6 @@
 /*
 Xuan-Yuan Sword VII - ASL primarily by master_fiora
-This ASL is compatible with Xuan-Yuan Sword VII versions: V1.04
+This ASL is compatible with Xuan-Yuan Sword VII versions
 */
 
 state("SWD7-Win64-Shipping", "Steam 1.04"){
@@ -8,22 +8,27 @@ state("SWD7-Win64-Shipping", "Steam 1.04"){
 	uint test: "SWD7-Win64-Shipping.exe", 0x0;
 }
 
+state("SWD7-Win64-Shipping", "Steam 1.10"){
+	double igt: "SWD7-Win64-Shipping.exe", 0x3EAF100, 0x28, 0x2A8, 0x1B0;
+	uint test: "SWD7-Win64-Shipping.exe", 0x0;
+}
+
 startup{
-	settings.Add("20201119 Release notes: InGameTime", false);
+	settings.Add("20201220 Release notes: V1.10 updated", false);
 	settings.Add("Reset on start swd7", true);
 	settings.Add("BOSS AutoSplit", true, "BOSS AutoSplit");
 		settings.Add("BOSS1", true, "炎顱", "BOSS AutoSplit");
 		settings.Add("BOSS2", true, "檮杌", "BOSS AutoSplit");
 		settings.Add("BOSS3", true, "鑾魃", "BOSS AutoSplit");
-		settings.Add("BOSS4", true, "女丑尸", "BOSS AutoSplit");
-		settings.Add("BOSS5", true, "機關獸", "BOSS AutoSplit");
+		settings.Add("BOSS4", true, "女丑", "BOSS AutoSplit");
+		settings.Add("BOSS5", true, "機獸", "BOSS AutoSplit");
 		settings.Add("BOSS6", true, "孫恪", "BOSS AutoSplit");
 		settings.Add("BOSS7", true, "乙人", "BOSS AutoSplit");
 		settings.Add("BOSS8", true, "琉璃", "BOSS AutoSplit");
 		settings.Add("BOSS9", true, "莫煌", "BOSS AutoSplit");
-		settings.Add("BOSS10", true, "黑火龍", "BOSS AutoSplit");
+		settings.Add("BOSS10", true, "黑龍", "BOSS AutoSplit");
 
-	vars.ASLVersion = "2020-11-19 for SWD7 V1.04";
+	vars.ASLVersion = "2020-12-20 for SWD7 V1.10";
 	vars.logFilePath = Directory.GetCurrentDirectory() + "\\SWD7-Autosplitter.log"; //same folder as LiveSplit.exe
 	vars.log = (Action<string>)((string logLine) => {
 		string time = System.DateTime.Now.ToString("dd/MM/yy hh:mm:ss:fff");
@@ -62,6 +67,11 @@ init
 		version = "Steam 1.04"; 
 		vars.log("other game version: " + version + " - MD5Hash: " + MD5Hash);	
 	}
+	else if(MD5Hash == "1A72D3D6D12943DA5BCBF82D983FE05C"){
+		version = "Steam 1.10"; 
+		vars.log("other game version: " + version + " - MD5Hash: " + MD5Hash);	
+	}
+	
 	else{
 		version = "unknown version"; 
 		vars.log("Unknown version: " + version + " - MD5Hash: " + MD5Hash);	
