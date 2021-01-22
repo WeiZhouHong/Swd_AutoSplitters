@@ -13,8 +13,13 @@ state("SWD7-Win64-Shipping", "Steam 1.10"){
 	uint test: "SWD7-Win64-Shipping.exe", 0x0;
 }
 
+state("SWD7-Win64-Shipping", "Steam 1.13"){
+	double igt: "SWD7-Win64-Shipping.exe", 0x3E8D928, 0x50, 0x600, 0x1B0;
+	uint test: "SWD7-Win64-Shipping.exe", 0x0;
+}
+
 startup{
-	settings.Add("20201220 Release notes: V1.10 updated", false);
+	settings.Add("20210122 Release notes: V1.13 updated", false);
 	settings.Add("Reset on start swd7", true);
 	settings.Add("BOSS AutoSplit", true, "BOSS AutoSplit");
 		settings.Add("BOSS1", true, "炎顱", "BOSS AutoSplit");
@@ -26,7 +31,7 @@ startup{
 		settings.Add("BOSS7", true, "乙人", "BOSS AutoSplit");
 		settings.Add("BOSS8", true, "琉璃", "BOSS AutoSplit");
 		settings.Add("BOSS9", true, "莫煌", "BOSS AutoSplit");
-		settings.Add("BOSS10", true, "黑龍", "BOSS AutoSplit");
+		settings.Add("BOSS10", true, "黑火", "BOSS AutoSplit");
 
 	vars.ASLVersion = "2020-12-20 for SWD7 V1.10";
 	vars.logFilePath = Directory.GetCurrentDirectory() + "\\SWD7-Autosplitter.log"; //same folder as LiveSplit.exe
@@ -63,13 +68,13 @@ init
 		version = "Steam 1.04"; 
 		vars.log("Detected game version: " + version + " - MD5Hash: " + MD5Hash);
 	}
-	else if(MD5Hash == "10BADCA2B382ADDBD6A65F7325A30D08"){
-		version = "Steam 1.04"; 
-		vars.log("other game version: " + version + " - MD5Hash: " + MD5Hash);	
-	}
 	else if(MD5Hash == "1A72D3D6D12943DA5BCBF82D983FE05C"){
 		version = "Steam 1.10"; 
-		vars.log("other game version: " + version + " - MD5Hash: " + MD5Hash);	
+		vars.log("Detected game version: " + version + " - MD5Hash: " + MD5Hash);	
+	}
+	else if(MD5Hash == "0B83F278641D125AA6D2804A34EE0E86"){
+		version = "Steam 1.13"; 
+		vars.log("Detected game version: " + version + " - MD5Hash: " + MD5Hash);	
 	}
 	
 	else{
