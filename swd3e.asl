@@ -14,8 +14,8 @@ state("swd3eDvd", "2.00 DVD(TW)"){
 	byte C4_level: "swd3eDvd.exe", 0xC7F16;	//張烈等級
 	byte f8_pause: "swd3eDvd.exe", 0xE9CF0; //遊戲是否暫停
 	uint C1_skill: "swd3eDvd.exe", 0xC56C4;	//阿仇隱藏經驗值
-	uint map: "swd3eDvd.exe", 0xC6178;		//所在地圖編號
-	uint mov: "swd3eDvd.exe", 0x17B60C;		//動畫判定
+	uint map: "swd3eDvd.exe", 0xC6178;	//所在地圖編號
+	uint mov: "swd3eDvd.exe", 0x17B60C;	//動畫判定
 
 }
 
