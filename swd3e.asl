@@ -5,11 +5,11 @@ This ASL is compatible with Xuan-Yuan Sword 3 The Scar of the Sky: V2.0 DVD (TW)
 */
 
 state("swd3eDvd", "2.00 DVD(TW)"){	
-	byte C1_level: "swd3eDvd.exe", 0xC7F2C;	//阿仇等級
-	byte f8_pause: "swd3eDvd.exe", 0xE9CF0; //遊戲是否暫停
-	byte basil: "swd3eDvd.exe", 0x10E7B8, 0x6; //羅勒草
-	uint map: "swd3eDvd.exe", 0xC6178;	//所在地圖編號
-	uint mov: "swd3eDvd.exe", 0x17B60C;	//動畫判定
+	byte C1_level: "swd3eDvd.exe", 0xC7F2C;		//阿仇等級
+	byte f8_pause: "swd3eDvd.exe", 0xE9CF0; 	//遊戲是否暫停
+	byte basil: "swd3eDvd.exe", 0x10E7B8, 0x6; 	//羅勒草
+	uint map: "swd3eDvd.exe", 0xC6178;		//所在地圖編號
+	uint mov: "swd3eDvd.exe", 0x17B60C;		//動畫判定
 }
 
 
