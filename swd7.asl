@@ -18,6 +18,11 @@ state("SWD7-Win64-Shipping", "Steam 1.13"){
 	uint test: "SWD7-Win64-Shipping.exe", 0x0;
 }
 
+state("SWD7-Win64-Shipping", "Steam 1.26"){
+	double igt: "SWD7-Win64-Shipping.exe", 0x3F32E68, 0x48, 0x618, 0x430;
+	uint test: "SWD7-Win64-Shipping.exe", 0x0;
+}
+
 startup{
 	settings.Add("20210122 Release notes: V1.13 updated", false);
 	settings.Add("Reset on start swd7", true);
@@ -33,7 +38,7 @@ startup{
 		settings.Add("BOSS9", true, "莫煌", "BOSS AutoSplit");
 		settings.Add("BOSS10", true, "黑火", "BOSS AutoSplit");
 
-	vars.ASLVersion = "2021-01-22 for SWD7 V1.10";
+	vars.ASLVersion = "2022-07-19 for SWD7 V1.26";
 	vars.logFilePath = Directory.GetCurrentDirectory() + "\\SWD7-Autosplitter.log"; //same folder as LiveSplit.exe
 	vars.log = (Action<string>)((string logLine) => {
 		string time = System.DateTime.Now.ToString("dd/MM/yy hh:mm:ss:fff");
@@ -76,7 +81,10 @@ init
 		version = "Steam 1.13"; 
 		vars.log("Detected game version: " + version + " - MD5Hash: " + MD5Hash);	
 	}
-	
+	else if(MD5Hash == "0CB77F76EEF216788E19A38DBA1FB12D"){
+		version = "Steam 1.26"; 
+		vars.log("Detected game version: " + version + " - MD5Hash: " + MD5Hash);	
+	}
 	else{
 		version = "unknown version"; 
 		vars.log("Unknown version: " + version + " - MD5Hash: " + MD5Hash);	
