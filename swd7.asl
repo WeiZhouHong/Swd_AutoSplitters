@@ -24,7 +24,7 @@ state("SWD7-Win64-Shipping", "Steam 1.26"){
 }
 
 startup{
-	settings.Add("20210122 Release notes: V1.13 updated", false);
+	settings.Add("20220719 Release notes: V1.26 updated", false);
 	settings.Add("Reset on start swd7", true);
 	settings.Add("BOSS AutoSplit", true, "BOSS AutoSplit");
 		settings.Add("BOSS1", true, "炎顱", "BOSS AutoSplit");
