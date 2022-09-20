@@ -25,8 +25,8 @@ state("SWD7-Win64-Shipping", "Steam 1.26"){
 
 startup{
 	settings.Add("20220920 Release notes: V1.26 updated", false);
-	settings.Add("Reset on start swd7 重開是否自動歸0", true);
-	settings.Add("BOSS AutoSplit 尚未重新製作無作用", true, "BOSS AutoSplit");
+	settings.Add("Reset on start swd7", true);
+	settings.Add("BOSS AutoSplit", true, "BOSS AutoSplit");
 		settings.Add("BOSS1", true, "炎顱", "BOSS AutoSplit");
 		settings.Add("BOSS2", true, "檮杌", "BOSS AutoSplit");
 		settings.Add("BOSS3", true, "鑾魃", "BOSS AutoSplit");
