@@ -19,14 +19,14 @@ state("SWD7-Win64-Shipping", "Steam 1.13"){
 }
 
 state("SWD7-Win64-Shipping", "Steam 1.26"){
-	double igt: "SWD7-Win64-Shipping.exe", 0x3F32E68, 0x48, 0x618, 0x430;
+	double igt: "SWD7-Win64-Shipping.exe", 0x40223B8, 0x58, 0x1C8, 0xB0, 0x1B0;
 	uint test: "SWD7-Win64-Shipping.exe", 0x0;
 }
 
 startup{
-	settings.Add("20220719 Release notes: V1.26 updated", false);
-	settings.Add("Reset on start swd7", true);
-	settings.Add("BOSS AutoSplit", true, "BOSS AutoSplit");
+	settings.Add("20220920 Release notes: V1.26 updated", false);
+	settings.Add("Reset on start swd7(重開是否自動歸0)", true);
+	settings.Add("BOSS AutoSplit(尚未重新製作，無作用)", true, "BOSS AutoSplit");
 		settings.Add("BOSS1", true, "炎顱", "BOSS AutoSplit");
 		settings.Add("BOSS2", true, "檮杌", "BOSS AutoSplit");
 		settings.Add("BOSS3", true, "鑾魃", "BOSS AutoSplit");
@@ -38,7 +38,7 @@ startup{
 		settings.Add("BOSS9", true, "莫煌", "BOSS AutoSplit");
 		settings.Add("BOSS10", true, "黑火", "BOSS AutoSplit");
 
-	vars.ASLVersion = "2022-07-19 for SWD7 V1.26";
+	vars.ASLVersion = "2022-09-20 for SWD7 V1.26";
 	vars.logFilePath = Directory.GetCurrentDirectory() + "\\SWD7-Autosplitter.log"; //same folder as LiveSplit.exe
 	vars.log = (Action<string>)((string logLine) => {
 		string time = System.DateTime.Now.ToString("dd/MM/yy hh:mm:ss:fff");
