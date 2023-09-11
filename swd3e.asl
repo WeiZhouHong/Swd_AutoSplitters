@@ -22,7 +22,7 @@ state("swd3eDvd", "2.00 DVD(TW)"){
 
 
 startup{
-	settings.Add("20230910 Release", false);
+	settings.Add("20230911 Release", false);
 	settings.Add("Show Skill-EXP on log", false);
 	settings.Add("羅勒草x100(煉妖最後需看一眼羅勒草)", false);	
 	settings.Add("Pause during F8", true);
@@ -112,6 +112,8 @@ init
         vars.Ningke2 = false;
         vars.master = false;
         vars.allahu_akbar = false;
+
+        vars.over = false; //戰鬥失敗判定
 }
 
 
@@ -239,6 +241,7 @@ update{
                 vars.Ningke1 = false;
                 vars.Ningke2 = false;
                 vars.master = false;
+                vars.over = false;
         }
 }
 
@@ -273,63 +276,64 @@ reset{
 
 
 split{
+        if(current.my_hp1 + current.my_hp2 + current.my_hp3 == 0 && old.my_hp1 + old.my_hp2 + old.my_hp3 != 0){vars.over = true;}
         //鮫精
-        if(vars.jiaojing == true && current.enemy_hp1 == 0){
+        if(vars.jiaojing == true && current.enemy_hp1 == 0 && vars.over == false){
                 vars.jiaojing = false;
                 return true;
         }
         //怒意鮫精
-        if(vars.angryjiaojing == true && current.enemy_hp1 == 0){
+        if(vars.angryjiaojing == true && current.enemy_hp1 == 0 && vars.over == false){
                 vars.angryjiaojing = false;
                 return true;
         }
         //邪屍骷髏
-        if(vars.skeleton == true && current.enemy_hp1 == 0){
+        if(vars.skeleton == true && current.enemy_hp1 == 0 && vars.over == false){
                 vars.skeleton = false;
                 return true;
         }
         //惡虎魔魅
-        if(vars.tiger == true && current.enemy_hp2 == 0){
+        if(vars.tiger == true && current.enemy_hp2 == 0 && vars.over == false){
                 vars.tiger = false;
                 return true;
         }
         //程咬金
-        if(vars.Yaojin == true && current.enemy_hp1 == 0){
+        if(vars.Yaojin == true && current.enemy_hp1 == 0 && vars.over == false){
                 vars.Yaojin = false;
                 return true;
         }
         //楊碩
-        if(vars.Shuo == true && current.enemy_hp1 == 0){
+        if(vars.Shuo == true && current.enemy_hp1 == 0 && vars.over == false){
                 vars.Shuo = false;
                 return true;
         }
         //火蝠魚精
-        if(vars.fish == true && current.enemy_hp2 == 0){
+        if(vars.fish == true && current.enemy_hp2 == 0 && vars.over == false){
                 vars.fish = false;
                 return true;
         }
         //鵁精
-        if(vars.bird == true && current.enemy_hp1 == 0){
+        if(vars.bird == true && current.enemy_hp1 == 0 && vars.over == false){
                 vars.bird = false;
                 return true;
         }
         //秦叔寶
-        if(vars.Shubao == true && current.enemy_hp1 + current.enemy_hp2 == 0){
+        if(vars.Shubao == true && current.enemy_hp1 + current.enemy_hp2 == 0 && vars.over == false){
                 vars.Shubao = false;
                 return true;
         }
         //氐人族戰士
-        if(vars.warrior == true && current.enemy_hp1 + current.enemy_hp3 == 0){
+        if(vars.warrior == true && current.enemy_hp1 + current.enemy_hp3 == 0 && vars.over == false){
                 vars.warrior = false;
                 return true;
         }
        /* //魚蝦蟹
-        if(vars.seafood == true && current.enemy_hp1 + current.enemy_hp2 + current.enemy_hp3 == 0){
+        if(vars.seafood == true && current.enemy_hp1 + current.enemy_hp2 + current.enemy_hp3 == 0 && vars.over == false){
                 vars.seafood = false;
                 return true;
         }*/
         //黑龍王
-        if(vars.dragon == true && current.enemy_hp1 == 0){
+        if(vars.dragon == true && current.enemy_hp1 == 0 && vars.over == false){
                 vars.dragon = false;
                 return true;
         }
@@ -339,7 +343,7 @@ split{
                 return true;
         }
         //盤古
-        if(vars.pangu == true && current.enemy_hp1 == 0){
+        if(vars.pangu == true && current.enemy_hp1 == 0 && vars.over == false){
                 vars.pangu = false;
                 return true;
         }   
@@ -349,7 +353,7 @@ split{
                 return true;
         }
         //上官震遠
-        if(vars.Zhenyuan == true && current.enemy_hp1 == 0){
+        if(vars.Zhenyuan == true && current.enemy_hp1 == 0 && vars.over == false){
                 vars.Zhenyuan = false;
                 return true;
         } 
@@ -359,27 +363,27 @@ split{
                 return true;
         }  
         //斛律安2
-        if(vars.Luan2 == true && current.enemy_hp1 == 0){
+        if(vars.Luan2 == true && current.enemy_hp1 == 0 && vars.over == false){
                 vars.Luan2 = false;
                 return true;
         }
         //韓騰1
-        if(vars.Teng1 == true && current.enemy_hp1 == 0){
+        if(vars.Teng1 == true && current.enemy_hp1 == 0 && vars.over == false){
                 vars.Teng1 = false;
                 return true;
         }  
         //盜匪
-        if(vars.robbers == true && current.enemy_hp1 + current.enemy_hp2 + current.enemy_hp3 == 0){
+        if(vars.robbers == true && current.enemy_hp1 + current.enemy_hp2 + current.enemy_hp3 == 0 && vars.over == false){
                 vars.robbers = false;
                 return true;
         }  
         //韓騰2
-        if(vars.Teng2 == true && current.enemy_hp1 == 0){
+        if(vars.Teng2 == true && current.enemy_hp1 == 0 && vars.over == false){
                 vars.Teng2 = false;
                 return true;
         }  
         //宇文拓2
-        if(vars.Yuwentuo2 == true && current.enemy_hp1 == 0){
+        if(vars.Yuwentuo2 == true && current.enemy_hp1 == 0 && vars.over == false){
                 vars.Yuwentuo2 = false;
                 return true;
         } 
@@ -393,12 +397,12 @@ split{
                 if(old.enemy_hp3 != current.enemy_hp3){
                         vars.summon = true;
                 }
-                if(vars.summon == false && current.enemy_hp1 == 0){
+                if(vars.summon == false && current.enemy_hp1 == 0 && vars.over == false){
                         vars.Yenhung = false;
                         vars.summon = false;
                         return true;
                 }
-                else if(vars.summon == true && current.enemy_hp1 + current.enemy_hp2 + current.enemy_hp3 == 0){
+                else if(vars.summon == true && current.enemy_hp1 + current.enemy_hp2 + current.enemy_hp3 == 0 && vars.over == false){
                         vars.Yenhung = false;
                         vars.summon = false;
                         return true;       
@@ -409,12 +413,12 @@ split{
                 if(old.enemy_hp3 != current.enemy_hp3){
                         vars.summon = true;
                 }
-                if(vars.summon == false && current.enemy_hp1 == 0){
+                if(vars.summon == false && current.enemy_hp1 == 0 && vars.over == false){
                         vars.Xiaoxiao = false;
                         vars.summon = false;
                         return true;
                 }
-                else if(vars.summon == true && current.enemy_hp1 + current.enemy_hp2 + current.enemy_hp3 == 0){
+                else if(vars.summon == true && current.enemy_hp1 + current.enemy_hp2 + current.enemy_hp3 == 0 && vars.over == false){
                         vars.Xiaoxiao = false;
                         vars.summon = false;
                         return true;       
@@ -425,12 +429,12 @@ split{
                 if(old.enemy_hp3 != current.enemy_hp3){
                         vars.summon = true;
                 }
-                if(vars.summon == false && current.enemy_hp1 == 0){
+                if(vars.summon == false && current.enemy_hp1 == 0 && vars.over == false){
                         vars.Ningke1 = false;
                         vars.summon = false;
                         return true;
                 }
-                else if(vars.summon == true && current.enemy_hp1 + current.enemy_hp2 + current.enemy_hp3 == 0){
+                else if(vars.summon == true && current.enemy_hp1 + current.enemy_hp2 + current.enemy_hp3 == 0 && vars.over == false){
                         vars.Ningke1 = false;
                         vars.summon = false;
                         return true;       
@@ -441,24 +445,24 @@ split{
                 if(old.enemy_hp3 != current.enemy_hp3){
                         vars.summon = true;
                 }
-                if(vars.summon == false && current.enemy_hp1 == 0){
+                if(vars.summon == false && current.enemy_hp1 == 0 && vars.over == false){
                         vars.Ningke2 = false;
                         vars.summon = false;
                         return true;
                 }
-                else if(vars.summon == true && current.enemy_hp1 + current.enemy_hp2 + current.enemy_hp3 == 0){
+                else if(vars.summon == true && current.enemy_hp1 + current.enemy_hp2 + current.enemy_hp3 == 0 && vars.over == false){
                         vars.Ningke2 = false;
                         vars.summon = false;
                         return true;       
                 }
         } 
         //魔化師父
-        if(vars.master == true && current.enemy_hp1 == 0){
+        if(vars.master == true && current.enemy_hp1 == 0 && vars.over == false){
                 vars.master = false;
                 return true;
         } 
         //阿拉花瓜
-        if(vars.allahu_akbar == true && current.enemy_hp1 + current.enemy_hp2 + current.enemy_hp3 + current.enemy_hp4 == 0){
+        if(vars.allahu_akbar == true && current.enemy_hp1 + current.enemy_hp2 + current.enemy_hp3 + current.enemy_hp4 == 0 && vars.over == false){
                 vars.allahu_akbar = false;
                 return true;
         } 
