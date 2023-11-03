@@ -38,7 +38,7 @@ state("swd3", "1.02CD"){
 
 startup{
 	vars.ASLVersion = "2023-11-03 for SWD3 DVD1.02";
-
+	settings.Add("2023-11-03 by EME", false);
 	settings.Add("Pause during F8", true);
 	
 	vars.logFilePath = Directory.GetCurrentDirectory() + "\\SWD3-Autosplitter.log"; //same folder as LiveSplit.exe
