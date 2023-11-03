@@ -89,6 +89,7 @@ startup{
                 settings.Add("塔德莫爾");
                 settings.Add("五年後");
                 settings.Add("回現實");
+		settings.Add("Ending");
 }
 
 init
@@ -443,7 +444,7 @@ split{
                 return true;
         }
 
-	if(current.map == 341){   //final ending
+	if(settings["Ending"] && current.map == 341){   //final ending
 		return true;
 	}
 	else{
